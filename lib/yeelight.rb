@@ -1,3 +1,4 @@
+require "yeelight/client"
 require "yeelight/version"
 
 module Yeelight
