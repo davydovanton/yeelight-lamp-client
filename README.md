@@ -1,5 +1,7 @@
 # Yeelight::Lamp::Client
 
+Simple client for Yeelight lamps
+
 Inspired by:
 https://github.com/nunows/Yeelight-Wifi
 
@@ -21,13 +23,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require_relative './lib/yeelight'
 
-## Development
+GREEN = '5701376'
+RED = '16713472'
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+client = Yeelight::Client.new(LAMP_IP_ADDRESS, 55443)
+client.get_prop('"ct"') # => JSON with props
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+lamp = Yeelight::Lamp.new(client)
+lamp.toggle_color(GREEN, 2)
+sleep 1
+lamp.toggle_color(RED, 2)
+```
 
 ## Contributing
 
