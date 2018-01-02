@@ -1,4 +1,5 @@
 require "yeelight/client"
+require "yeelight/lamp"
 require "yeelight/version"
 
 module Yeelight
