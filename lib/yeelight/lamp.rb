@@ -8,7 +8,9 @@ module Yeelight
       @client = client
     end
 
-    def toggle_color(color, duration = 1)
+    def toggle_color(color_hex, duration = 1)
+      color = "0x#{color_hex}".to_i(16)
+
       rgb, ct, color_mode, hue, sat = JSON.parse(client.get_prop(VALUES))['data']['result']
 
       client.set_rgb(color, 'smooth', 500)
