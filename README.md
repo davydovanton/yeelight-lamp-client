@@ -26,8 +26,11 @@ Or install it yourself as:
 ```ruby
 require_relative './lib/yeelight'
 
-GREEN = '5701376'
-RED = '16713472'
+# Use your lamp's IP address
+LAMP_IP_ADDRESS = '192.168.0.1'
+# Provide Hex Values
+GREEN = '00FF00'
+RED = 'FF0000'
 
 client = Yeelight::Client.new(LAMP_IP_ADDRESS, 55443)
 client.get_prop('"ct"') # => JSON with props
